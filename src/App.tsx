@@ -3,6 +3,7 @@ import "./App.css";
 import TodoList from "./components/TodoList";
 import Todo from "./models/todo";
 import todoService from "./services/todo";
+import NewTodo from "./components/NewTodo";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <NewTodo />
       <TodoList todos={todos} onRemoveTodo={deleteTodo} />
     </div>
   );

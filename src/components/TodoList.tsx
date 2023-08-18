@@ -7,20 +7,18 @@ interface TodoListProps {
 
 export default function TodoList({ todos, onRemoveTodo }: TodoListProps) {
   return (
-    <div className="d-flex justify-content-around">
-      <ul className="list-group">
-        {todos.map((todo) => (
-          <li className="mx-2 list-group-item" key={todo.id}>
-            {todo.title}
-            <button
-              onClick={() => onRemoveTodo(todo.id)}
-              className="mx-5 btn btn-outline-danger"
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="list-group">
+      {todos.map((todo) => (
+        <li className="mx-2 list-group-item" key={todo.id}>
+          {todo.title}
+          <button
+            onClick={() => onRemoveTodo(todo.id)}
+            className="mx-5 btn btn-outline-danger"
+          >
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }
