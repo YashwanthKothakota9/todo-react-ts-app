@@ -11,13 +11,17 @@ function App() {
     setTodos(await todoService.getTodos());
   };
 
+  const deleteTodo = async (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   useEffect(() => {
     loadTodos();
   }, []);
 
   return (
     <div className="App">
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onRemoveTodo={deleteTodo} />
     </div>
   );
 }
