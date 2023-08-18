@@ -15,8 +15,8 @@ function NewTodo({ onAddTodo }: NewTodoProps) {
   };
 
   return (
-    <form onSubmit={submitForm}>
-      <label htmlFor="title" className="form-label">
+    <form onSubmit={submitForm} className="mx-2">
+      <label htmlFor="title" className="fs-2 form-label">
         Enter the new Todo to add to list
       </label>
       <input
