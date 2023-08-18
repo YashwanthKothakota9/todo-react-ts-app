@@ -15,17 +15,17 @@ function NewTodo({ onAddTodo }: NewTodoProps) {
   };
 
   return (
-    <form onSubmit={submitForm} className="mx-2">
-      <label htmlFor="title" className="fs-2 form-label">
-        Enter the new Todo to add to list
+    <form onSubmit={submitForm}>
+      <label htmlFor="title" className="font-monospace fw-bold fs-2 form-label">
+        Enter the new Todo to add to the list
       </label>
-      <input
+      <textarea
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         id="title"
-        className="form-control"
-      ></input>
-      <button type="submit" className="my-4 btn btn-primary">
+        className="form-control border border-black"
+      ></textarea>
+      <button type="submit" className="mt-2 mb-3 btn btn-dark">
         Add Todo
       </button>
     </form>
