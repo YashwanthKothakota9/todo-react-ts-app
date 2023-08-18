@@ -16,13 +16,18 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const addTodo = async (title: string) => {
+    const newTodo = await todoService.addTodo(title);
+    setTodos([newTodo, ...todos]);
+  };
+
   useEffect(() => {
     loadTodos();
   }, []);
 
   return (
     <div className="App">
-      <NewTodo />
+      <NewTodo onAddTodo={addTodo} />
       <TodoList todos={todos} onRemoveTodo={deleteTodo} />
     </div>
   );

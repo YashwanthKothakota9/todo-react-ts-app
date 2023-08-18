@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 
-function NewTodo() {
+interface NewTodoProps {
+  onAddTodo: (title: string) => void;
+}
+
+function NewTodo({ onAddTodo }: NewTodoProps) {
   const [title, setTitle] = useState("");
 
+  const submitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!title) return;
+    onAddTodo(title);
+    setTitle("");
+  };
+
   return (
-    <form>
+    <form onSubmit={submitForm}>
       <label htmlFor="title" className="form-label">
         Enter the new Todo to add to list
       </label>
